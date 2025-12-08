@@ -13,7 +13,13 @@ import estimateRoutes from "./routes/estimate.js";
 //import requisitionRoutes from "./routes/requisition.js";
 
 const app = express();
-app.use(cors());
+//app.use(cors());
+ app.use(cors({
+  origin: "https://vision-project-3ntg.vercel.app", // your frontend origin
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true,
+  allowedHeaders: ["Content-Type", "Authorization"], // important!
+}));
 app.use(express.json());
 app.use('/api/auth',authRoutes);
 app.use('/api/category',categoryRoutes);
