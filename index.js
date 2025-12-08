@@ -37,8 +37,16 @@ app.get('/', (req, res) => {
 })
 
 
-app.listen(process.env.PORT, () =>{
-connectDB();
-    console.log('server is running on http://localhost:3000');
-}
-)
+// app.listen(process.env.PORT, () =>{
+// connectDB();
+//     console.log('server is running on http://localhost:3000');
+// }
+// )
+// Fixed port + DB connection
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, async () => {
+  await connectDB();                          
+  console.log(`Server running on http://localhost:${PORT}`);
+  console.log('MongoDB  Connected!');
+});
