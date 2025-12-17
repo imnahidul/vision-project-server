@@ -6,7 +6,7 @@ const itemSchema = new mongoose.Schema({
   item: String,
   description: String,
   qty: { type: Number, default: 1 },
-  //unit: { type: String, default: "pcs" },
+  unit: { type: String, default: "pcs" },
   price: { type: Number, default: 0 },
   total: { type: Number, default: 0 },
 });
