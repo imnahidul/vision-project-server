@@ -24,7 +24,10 @@ const productSchema = new mongoose.Schema ({
     description :{type: String, required: true},
     price :{type: Number, required: true},
     stock :{type: Number, required: true},
-    stockDate: { type: Date,default: Date.now, },
+    // stockDate: { type: Date,default: Date.now, },
+       stockDate: {type: String,required: true,
+  //default: () => new Date().toISOString().split('T')[0]  
+},
     isDeleted:{type: Boolean, default: false},
     categoryId : {type: mongoose.Schema.Types.ObjectId, ref:"Category", required: true},
     supplierId: {type: mongoose.Schema.Types.ObjectId, ref:"Supplier", required: true},
